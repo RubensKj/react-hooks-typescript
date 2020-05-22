@@ -3,6 +3,10 @@ import React, {
   useEffect,
   useMemo,
   useCallback,
+  useRef,
+  useContext,
+  useImperativeHandle,
+  useReducer
 } from 'react';
 
 import './styles/global.css';
@@ -14,6 +18,8 @@ interface User {
 }
 
 const App: React.FC = () => {
+  const inputRef = useRef<HTMLInputElement>(null);
+
   const [users, setUsers] = useState<[User]>();
   const names = useMemo(() => users?.map(user => user.name).join(', '), [users]);
 
@@ -22,9 +28,14 @@ const App: React.FC = () => {
     []
   )
 
+  inputRef.current.focus();
+
   return (
     <div>
       {names}
+      <form action="">
+        <input type="text" ref={inputRef}/>
+      </form>
     </div>
   );
 }
