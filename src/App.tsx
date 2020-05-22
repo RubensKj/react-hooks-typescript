@@ -5,8 +5,8 @@ import React, {
   useCallback,
   useRef,
   useContext,
+  useReducer,
   useImperativeHandle,
-  useReducer
 } from 'react';
 
 import './styles/global.css';
