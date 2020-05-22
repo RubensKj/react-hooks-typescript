@@ -28,7 +28,7 @@ const App: React.FC = () => {
     []
   )
 
-  inputRef.current.focus();
+  inputRef.current?.focus();
 
   return (
     <div>
