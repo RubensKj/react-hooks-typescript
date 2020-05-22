@@ -4,8 +4,14 @@ import React, {
 
 import './styles/global.css';
 
+interface User {
+  name: string;
+  login: string;
+  avatar_url: string;
+}
+
 const App: React.FC = () => {
-  const [user, setUser] = useState();
+  const [user, setUser] = useState<User>();
 
   async function loadData() {
     const response = await fetch('https://api.github.com/users/rubenskj');
@@ -15,7 +21,9 @@ const App: React.FC = () => {
   }
 
   return (
-    <div></div>
+    <div>
+      {user?.name}
+    </div>
   );
 }
 
