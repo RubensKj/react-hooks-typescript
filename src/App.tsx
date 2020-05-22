@@ -1,12 +1,8 @@
 import React, {
   useState,
-  useEffect,
   useMemo,
   useCallback,
   useRef,
-  useContext,
-  useReducer,
-  useImperativeHandle,
 } from 'react';
 
 import './styles/global.css';
