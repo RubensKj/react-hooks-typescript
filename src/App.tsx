@@ -1,5 +1,8 @@
 import React, {
   useState,
+  useEffect,
+  useMemo,
+  useCallback,
 } from 'react';
 
 import './styles/global.css';
@@ -11,18 +14,12 @@ interface User {
 }
 
 const App: React.FC = () => {
-  const [user, setUser] = useState<User>();
-
-  async function loadData() {
-    const response = await fetch('https://api.github.com/users/rubenskj');
-    const data = await response.json();
-
-    setUser(data);
-  }
+  const [users, setUsers] = useState<[User]>();
+  const names = useMemo(() => users?.map(user => user.name).join(', '), [users]);
 
   return (
     <div>
-      {user?.name}
+      {names}
     </div>
   );
 }
