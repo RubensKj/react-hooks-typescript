@@ -17,6 +17,11 @@ const App: React.FC = () => {
   const [users, setUsers] = useState<[User]>();
   const names = useMemo(() => users?.map(user => user.name).join(', '), [users]);
 
+  const gretting = useCallback(
+    (user: User) => alert(`Hello ${user.name}`),
+    []
+  )
+
   return (
     <div>
       {names}
